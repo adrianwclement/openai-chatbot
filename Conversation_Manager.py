@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 
 
-class Convsersation_Manager:
+class Conversation_Manager:
 
     """
     Initializes the ConversationManager with the specified configurations
@@ -57,7 +57,6 @@ class Convsersation_Manager:
         # Set default persona to be the normal assistant
         self.system_message = self.system_messages["normal_assistant"]
 
-        # TODO FIX!!!!!
         self.load_conversation_history()
 
 
@@ -284,3 +283,4 @@ class Convsersation_Manager:
         
         except Exception as e:
             print(f"An unexpected error occurred while resetting the conversation history: {e}")
+            

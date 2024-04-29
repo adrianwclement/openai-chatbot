@@ -1,19 +1,22 @@
-from ConversationManager import Convsersation_Manager
+from Conversation_Manager import Conversation_Manager
 import streamlit as st
 import os
 
 
 # Set API Key
-api_key = os.environ["OPENAI_API_KEY2"]
+api_key = os.getenv("OPENAI_API_KEY2")
+if not api_key:
+    st.error("API Key is not set in the environment variables.")
+    st.stop()
 
 
 ### Streamlit Implementation ###
 
-st.title("Streamlit Chatbot!")
+st.title("Welcome to my Chatbot!")
 
 # Check if key exists in session state to prevent reinitialization
 if "chat" not in st.session_state:
-    st.session_state["chat"] = Convsersation_Manager(api_key)
+    st.session_state["chat"] = Conversation_Manager(api_key)
 
 chat_manager = st.session_state["chat"]
 
